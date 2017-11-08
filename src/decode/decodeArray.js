@@ -1,5 +1,5 @@
 import PACKET_PAD from '../constants';
-import decode from './index';
+import { decode } from './index';
 
 /**
  * Decode boolean

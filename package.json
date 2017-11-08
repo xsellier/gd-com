@@ -1,6 +1,6 @@
 {
   "name": "gd-com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Establish communication between godot and nodejs",
   "main": "lib/library.min.js",
   "scripts": {

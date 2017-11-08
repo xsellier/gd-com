@@ -22,7 +22,7 @@ import decodeArray from './decodeArray';
  * @param pBuf
  * @returns {*}
  */
-function decode(pBuf) {
+export function decode(pBuf) {
   const buf = pBuf.slice(4);
   const type = buf.readUInt32LE(0);
   let data = null;
