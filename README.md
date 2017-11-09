@@ -12,13 +12,24 @@ API godot : http://docs.godotengine.org/en/stable/learning/features/misc/binary_
 
 ES6
 ```javascript
-import { decode, encode } from 'gd-com';
+import tcp from 'gd-com';
 
 let wanted = "test";
 console.log(wanted);
-let encoded = encode(wanted);
+let encoded = tcp.encode(wanted);
 console.log(encoded);
-let decoded = decode(encoded);
+let decoded = tcp.decode(encoded);
+console.log(decoded);
+
+// OR
+
+import { udp } from 'gd-com';
+
+let wanted = "test";
+console.log(wanted);
+let encoded = udp.encode(wanted);
+console.log(encoded);
+let decoded = udp.decode(encoded);
 console.log(decoded);
 ```
 
@@ -28,22 +39,20 @@ var gdCom = require('gd-com');
 
 var wanted = "test";
 console.log(wanted);
-let encoded = gdCom.encode(wanted);
+let encoded = gdCom.tcp.encode(wanted);
 console.log(encoded);
-let decoded = gdCom.decode(encoded);
+let decoded = gdCom.tcp.decode(encoded);
 console.log(decoded);
 
 // OR
 
-var encode = require('gd-com').encode;
-var decode = require('gd-com').decode;
-
 var wanted = "test";
 console.log(wanted);
-let encoded = encode(wanted);
+let encoded = gdCom.udp.encode(wanted);
 console.log(encoded);
-let decoded = decode(encoded);
+let decoded = gdCom.udp.decode(encoded);
 console.log(decoded);
+
 ```
 
 ## Contributing

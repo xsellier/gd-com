@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
- * Decode Vector2
+ * Decode Rect2
  * @param buf
  * @returns {Object}
  */
-export default function decodeRect2(buf) {
+export default (buf) => {
   return {
     value: {
       coordinate: {
@@ -17,6 +15,6 @@ export default function decodeRect2(buf) {
         y: buf.readFloatLE(16)
       }
     },
-    length: PACKET_PAD + (4 * 4)
+    length: 4 * 4
   };
-}
+};

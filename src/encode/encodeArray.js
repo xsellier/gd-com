@@ -1,11 +1,9 @@
-import { writeType } from './';
-
 /**
  * Encode array
  * @param value
  * @returns {{value: Buffer, length: Number}}
  */
-export default function encodeArray(value) {
+export default (value) => {
   let len = 8;
 
   for (let i in value) {
@@ -16,7 +14,7 @@ export default function encodeArray(value) {
 
   let buf = new Buffer(len);
 
-  writeType(buf, 21);
+  buf.writeUInt32LE(21, 0);
   buf.writeUInt32LE(value.length & 0x7FFFFFFF, 4);
 
   let bufPos = 8;
@@ -32,4 +30,4 @@ export default function encodeArray(value) {
     value: buf,
     length: buf.length
   };
-}
+};

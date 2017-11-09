@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
- * Decode Vector2
+ * Decode Plane
  * @param buf
  * @returns {Object}
  */
-export default function decodePlane(buf) {
+export default (buf) => {
   return {
     value: {
       x: buf.readFloatLE(4),
@@ -13,6 +11,6 @@ export default function decodePlane(buf) {
       z: buf.readFloatLE(12),
       dist: buf.readFloatLE(16)
     },
-    length: PACKET_PAD + (4 * 4)
+    length: 4 * 4
   };
-}
+};

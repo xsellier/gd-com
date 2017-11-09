@@ -1,26 +1,26 @@
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 /* eslint no-bitwise: ["error", { "allow": ["&"] }] */
 
-import PACKET_PAD from '../constants';
 import { decode } from './index';
 
 /**
- * Decode boolean
+ * Decode Dictionnary
+ * @param offset
  * @param buf
  * @returns {Object}
  */
-export default function decodeDictionnary(buf) {
+export default (offset, buf) => {
   const nrEntries = buf.readUInt32LE(4) & 0x7FFFFFFF;
   const dict = {};
-  let bufPos = PACKET_PAD;
+  let bufPos = 8;
 
   for (let i = 0; i < nrEntries; i++) {
     // start from 8
-    const decodedKey = decode(buf.slice(bufPos));
+    const decodedKey = decode(offset, buf.slice(bufPos));
 
     bufPos += decodedKey.length;
 
-    const decodedValue = decode(buf.slice(bufPos));
+    const decodedValue = decode(offset, buf.slice(bufPos));
 
     bufPos += decodedValue.length;
     dict[decodedKey.value] = decodedValue.value;
@@ -28,6 +28,6 @@ export default function decodeDictionnary(buf) {
 
   return {
     value: dict,
-    length: PACKET_PAD + bufPos
+    length: bufPos
   };
-}
+};

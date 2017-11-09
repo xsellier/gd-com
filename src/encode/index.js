@@ -1,12 +1,19 @@
-import { each, isObject, isArray } from 'lodash';
-
-import encodeNull from './encodeNull';
 import encodeBoolean from './encodeBoolean';
 import encodeInteger from './encodeInteger';
 import encodeFloat from './encodeFloat';
 import encodeString from './encodeString';
 import encodeDictionnary from './encodeDictionnary';
 import encodeArray from './encodeArray';
+
+function isObject(value) {
+  const type = typeof value;
+
+  return value !== null && (type === 'object' || type === 'function');
+}
+
+function isArray(value) {
+  return Array.isArray(value);
+}
 
 /**
  * Prepare command message
@@ -24,20 +31,23 @@ function prepare(value) {
       if (isObject(value)) {
         const encoded = [];
 
-        each(value, (v, i) => {
-          encoded.push(prepare(i));
-          encoded.push(prepare(v));
-        });
-
+        for (let i in value) {
+          if (value.hasOwnProperty(i)) {
+            encoded.push(prepare(i));
+            encoded.push(prepare(value[i]));
+          }
+        }
         data = encodeDictionnary(encoded);
       }
 
       if (isArray(value)) {
         const encoded = [];
 
-        each(value, (v) => {
-          encoded.push(prepare(v));
-        });
+        for (let i in value) {
+          if (value.hasOwnProperty(i)) {
+            encoded.push(prepare(value[i]));
+          }
+        }
         data = encodeArray(encoded);
       }
       break;
@@ -60,7 +70,10 @@ function prepare(value) {
       break;
 
     default:
-      data = encodeNull();
+      data = {
+        value: null,
+        length: 4
+      };
       break;
   }
 
@@ -68,25 +81,18 @@ function prepare(value) {
 }
 
 /**
- * Write type
- * @param buf
- * @param type
- */
-export function writeType(buf, type) {
-  buf.writeUInt32LE(type, 0);
-}
-
-/**
  * Encode data
+ * offset 4 => tcp, 0 => udp
+ * @param offset
  * @param value
  * @returns {*}
  */
-export default function encode(value) {
+export default (offset, value) => {
   const packet = (data) => {
-    const buf = new Buffer(data.length + 4);
+    const buf = new Buffer(data.length + offset);
 
     buf.writeUInt32LE(data.length, 0);
-    data.value.copy(buf, 4);
+    data.value.copy(buf, offset);
     return buf;
   };
 

@@ -1,18 +1,18 @@
-import PACKET_PAD from '../constants';
 import { decode } from './index';
 
 /**
- * Decode boolean
+ * Decode Array
+ * @param offset
  * @param buf
  * @returns {Object}
  */
-export default function decodeArray(buf) {
+export default (offset, buf) => {
   const nrEntries = buf.readUInt32LE(4) & 0x7FFFFFFF;
   const arr = [];
-  let bufPos = PACKET_PAD;
+  let bufPos = 8;
 
   for (let i = 0; i < nrEntries; i++) {
-    const decodedKey = decode(buf.slice(bufPos));
+    const decodedKey = decode(offset, buf.slice(bufPos));
 
     bufPos += decodedKey.length;
     arr.push(decodedKey.value);
@@ -20,6 +20,6 @@ export default function decodeArray(buf) {
 
   return {
     value: arr,
-    length: PACKET_PAD + bufPos
+    length: bufPos
   };
-}
+};

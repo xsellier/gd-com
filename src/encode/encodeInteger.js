@@ -1,18 +1,17 @@
-import { writeType } from './';
-
 /**
  * Encode Integer
+ * @param value
  * @returns {{value: Buffer, length: Number}}
  */
 
-export default function encodeInteger(value) {
+export default (value) => {
   let buf = new Buffer(8);
 
-  writeType(buf, 2);
+  buf.writeUInt32LE(2, 0);
   buf.writeInt32LE(value, 4);
 
   return {
     value: buf,
     length: buf.length
   };
-}
+};

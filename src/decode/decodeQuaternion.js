@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
- * Decode Vector2
+ * Decode Quaternion
  * @param buf
  * @returns {Object}
  */
-export default function decodeQuaternion(buf) {
+export default (buf) => {
   return {
     value: {
       coordinate: {
@@ -19,6 +17,6 @@ export default function decodeQuaternion(buf) {
         z: buf.readFloatLE(24)
       }
     },
-    length: PACKET_PAD + (4 * 6)
+    length: 4 * 6
   };
-}
+};

@@ -1,16 +1,15 @@
-import { writeType } from './';
-
 /**
  * Encode string
  * @param value
  * @returns {{value: Buffer, length: Number}}
  */
-export default function encodeString(value) {
+export default (value) => {
   let len = Buffer.byteLength(value);
   let pad = len % 4 === 0 ? 0 : 4 - len % 4;
   let buf = new Buffer(8 + len + pad);
 
-  writeType(buf, 4);
+  buf.writeUInt32LE(4, 0);
+
   buf.writeUInt32LE(len, 4);
   buf.write(value, 8);
   if (pad !== 0) {
@@ -25,4 +24,4 @@ export default function encodeString(value) {
     value: buf,
     length: buf.length
   };
-}
+};

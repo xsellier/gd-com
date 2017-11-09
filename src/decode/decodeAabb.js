@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
  * Decode Aabb
  * @param buf
  * @returns {Object}
  */
-export default function decodeAabb(buf) {
+export default (buf) => {
   return {
     value: {
       coordinate: {
@@ -18,7 +16,7 @@ export default function decodeAabb(buf) {
         y: buf.readFloatLE(20),
         z: buf.readFloatLE(24)
       },
-      length: PACKET_PAD + (4 * 6)
+      length: 4 * 6
     }
   };
-}
+};

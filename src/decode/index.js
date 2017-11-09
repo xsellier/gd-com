@@ -1,5 +1,3 @@
-import PACKET_PAD from '../constants';
-
 import decodeBoolean from './decodeBoolean';
 import decodeInteger from './decodeInteger';
 import decodeFloat from './decodeFloat';
@@ -19,11 +17,12 @@ import decodeArray from './decodeArray';
 
 /**
  * Decode data
+ * @param offset
  * @param pBuf
  * @returns {*}
  */
-export function decode(pBuf) {
-  const buf = pBuf.slice(4);
+export function decode(offset, pBuf) {
+  const buf = pBuf.slice(offset);
   const type = buf.readUInt32LE(0);
   let data = null;
 
@@ -71,16 +70,16 @@ export function decode(pBuf) {
       data = decodeColor(buf);
       break;
     case 20:
-      data = decodeDictionnary(buf);
+      data = decodeDictionnary(offset, buf);
       break;
     case 21:
-      data = decodeArray(buf);
+      data = decodeArray(offset, buf);
       break;
     case 0:
     default:
       data = {
         value: null,
-        length: PACKET_PAD
+        length: 4
       };
       break;
   }
@@ -89,9 +88,11 @@ export function decode(pBuf) {
 
 /**
  * Decode data and return it's value
+ * offset 4 => tcp, 0 => udp
+ * @param offset
  * @param buf
  * @returns {*}
  */
-export default function decodeValue(buf) {
-  return decode(buf).value;
-}
+export default (offset, buf) => {
+  return decode(offset, buf).value;
+};

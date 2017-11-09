@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+* v0.0.4 - Add UDP support
+
+* v0.0.3 - Bug npm repo
+
+* v0.0.2 - Bug export
+
 * v0.0.1 - First release
   * Encode
     * Null

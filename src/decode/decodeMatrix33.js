@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
- * Decode boolean
+ * Decode Matrix33
  * @param buf
  * @returns {Object}
  */
-export default function decodeMatrix33(buf) {
+export default (buf) => {
   return {
     value: [
       [
@@ -22,6 +20,6 @@ export default function decodeMatrix33(buf) {
         buf.readFloatLE(36)
       ]
     ],
-    length: PACKET_PAD + (4 * 9)
+    length: 4 * 9
   };
-}
+};

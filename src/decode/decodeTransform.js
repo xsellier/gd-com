@@ -1,11 +1,9 @@
-import PACKET_PAD from '../constants';
-
 /**
  * Decode boolean
  * @param buf
  * @returns {Object}
  */
-export default function decodeTransform(buf) {
+export default (buf) => {
   return {
     value: [
       [
@@ -26,6 +24,6 @@ export default function decodeTransform(buf) {
         buf.readFloatLE(48)
       ]
     ],
-    length: PACKET_PAD + (4 * 12)
+    length: 4 * 12
   };
-}
+};
