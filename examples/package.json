@@ -1,0 +1,8 @@
+{
+  "name": "gd-com-test",
+  "version": "0.0.1",
+  "description": "gd-com-test",
+  "dependencies": {
+    "gd-com": "^0.0.6"
+  }
+}
