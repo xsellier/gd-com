@@ -19,10 +19,11 @@ import decodeArray from './decodeArray';
  * Decode data
  * @param offset
  * @param pBuf
+ * @param firstCall
  * @returns {*}
  */
-export function decode(offset, pBuf) {
-  const buf = pBuf.slice(offset);
+export function decode(offset, pBuf, firstCall = false) {
+  const buf = firstCall ? pBuf.slice(offset) : pBuf;
   const type = buf.readUInt32LE(0);
   let data = null;
 
@@ -94,5 +95,5 @@ export function decode(offset, pBuf) {
  * @returns {*}
  */
 export default (offset, buf) => {
-  return decode(offset, buf).value;
+  return decode(offset, buf, true).value;
 };
