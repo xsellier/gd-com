@@ -1,5 +1,7 @@
 ## CHANGELOG
 
+* v0.0.6 - bug encode dictionnary
+
 * v0.0.5 - bug recursive
 
 * v0.0.4 - Add UDP support

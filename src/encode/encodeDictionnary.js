@@ -4,7 +4,7 @@
  * @returns {{value: Buffer, length: Number}}
  */
 export default (value) => {
-  let len = 4;
+  let len = 8;
 
   for (let i in value) {
     if (value.hasOwnProperty(i)) {

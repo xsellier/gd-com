@@ -24,4 +24,4 @@ let nestedFunc = (type) => {
 };
 
 export let udp = nestedFunc('udp');
-export default nestedFunc('tcp');
+export let tcp = nestedFunc('tcp');

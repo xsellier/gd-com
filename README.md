@@ -1,6 +1,8 @@
 # gd-com
 
-Establish communication between godot and nodejs, here with tcp sockets
+Establish communication between godot and nodejs
+
+TCP and UDP !
 
 API godot : http://docs.godotengine.org/en/stable/learning/features/misc/binary_serialization_api.html
 
@@ -12,7 +14,7 @@ API godot : http://docs.godotengine.org/en/stable/learning/features/misc/binary_
 
 ES6
 ```javascript
-import tcp from 'gd-com';
+import { tcp } from 'gd-com';
 
 let wanted = "test";
 console.log(wanted);
