@@ -1,6 +1,7 @@
 /* global describe, it, before */
 import chai from 'chai';
-import { udp, tcp } from '../lib/library.min.js';
+import { udp, tcp } from '../lib';
+import { Vector2, Rect2 } from '../lib/object';
 
 chai.expect();
 
@@ -39,6 +40,12 @@ let data = {
       'test',
       'test2'
     ]
+  ],
+  'Vector2': [
+    new Vector2(2, 3)
+  ],
+  'Rect2': [
+    new Rect2(2, 3, 4, 5)
   ]
 };
 

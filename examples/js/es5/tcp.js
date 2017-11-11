@@ -1,5 +1,5 @@
 var net = require('net');
-var gdCom = require('gd-com');
+var gdCom = require('../lib/library.min');
 
 var server = net.createServer(function(socket) {
   socket.on('data', function(data) {

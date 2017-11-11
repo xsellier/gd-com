@@ -3,12 +3,11 @@
  * @param buf
  * @returns {Object}
  */
+import Vector2 from '../object/Vector2';
+
 export default (buf) => {
   return {
-    value: {
-      x: buf.readFloatLE(4),
-      y: buf.readFloatLE(8)
-    },
+    value: new Vector2(buf.readFloatLE(4), buf.readFloatLE(8)),
     length: 4 * 2
   };
 };

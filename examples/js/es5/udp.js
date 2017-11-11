@@ -1,5 +1,5 @@
 var dgram = require('dgram');
-var gdCom = require('gd-com');
+var gdCom = require('../lib/library.min');
 
 
 var server = dgram.createSocket('udp4');

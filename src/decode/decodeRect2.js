@@ -1,3 +1,5 @@
+import Rect2 from '../object/Rect2';
+
 /**
  * Decode Rect2
  * @param buf
@@ -5,16 +7,12 @@
  */
 export default (buf) => {
   return {
-    value: {
-      coordinate: {
-        x: buf.readFloatLE(4),
-        y: buf.readFloatLE(8)
-      },
-      size: {
-        x: buf.readFloatLE(12),
-        y: buf.readFloatLE(16)
-      }
-    },
+    value: new Rect2(
+      buf.readFloatLE(4),
+      buf.readFloatLE(8),
+      buf.readFloatLE(12),
+      buf.readFloatLE(16)
+    ),
     length: 4 * 4
   };
 };

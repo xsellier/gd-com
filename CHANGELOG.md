@@ -1,5 +1,17 @@
 ## CHANGELOG
 
+* v0.0.7
+  * Encode
+    * Rect2
+    * Vector2
+   * Decode
+       * Rect2
+       * Vector2
+  * unit tests
+  * modify library build system
+  * add GDScript for v3
+  * add Nodejs script ES6
+
 * v0.0.6 - bug encode dictionnary
 
 * v0.0.5 - bug recursive

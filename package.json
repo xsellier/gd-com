@@ -1,11 +1,10 @@
 {
   "name": "gd-com",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Establish communication between godot and nodejs",
   "main": "lib/library.min.js",
   "scripts": {
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
+    "build": "gulp",
     "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
     "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
@@ -13,15 +12,16 @@
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
-    "babel-loader": "7.0.0",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-preset-env": "^1.6.1",
     "chai": "3.5.0",
     "eslint": "3.19.0",
-    "eslint-loader": "1.7.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.1",
     "lodash": "^4.17.4",
     "mocha": "3.3.0",
-    "webpack": "3.1.0",
     "yargs": "7.1.0"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "godot",
     "nodejs",
     "tcp",
+    "udp",
     "socket"
   ],
   "author": "Tilican",
