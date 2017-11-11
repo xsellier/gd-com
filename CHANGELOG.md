@@ -6,9 +6,6 @@
   * Encode
     * Rect2
     * Vector2
-   * Decode
-       * Rect2
-       * Vector2
   * unit tests
   * modify library build system
   * add GDScript for v3
