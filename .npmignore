@@ -1,6 +1,5 @@
 yarn.lock
-webpack.config.js
-README.md
+gulpfile.js
 package.json
 LICENSE
 .nvmrc
@@ -12,3 +11,6 @@ LICENSE
 test/
 src/
 examples/
+CHANGELOG.md
+TODO.md
+CONTRIBUTING.md

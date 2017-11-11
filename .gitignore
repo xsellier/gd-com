@@ -29,3 +29,13 @@ node_modules
 # Remove some common IDE working directories
 .idea
 .vscode
+
+# build
+udp.js
+tcp.js
+index.js
+encode/
+decode/
+object/
+
+package-lock.json

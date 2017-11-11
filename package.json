@@ -1,8 +1,8 @@
 {
   "name": "gd-com",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Establish communication between godot and nodejs",
-  "main": "lib/library.min.js",
+  "main": "index.js",
   "scripts": {
     "build": "gulp",
     "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",

@@ -1,5 +1,7 @@
 ## CHANGELOG
 
+* v0.0.8 bug export
+
 * v0.0.7
   * Encode
     * Rect2

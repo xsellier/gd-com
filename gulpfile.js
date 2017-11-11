@@ -7,5 +7,5 @@ gulp.task('default', () =>
       presets: ['env'],
       plugins: ['babel-plugin-add-module-exports']
     }))
-    .pipe(gulp.dest('lib'))
+    .pipe(gulp.dest('.'))
 );
