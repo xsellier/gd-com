@@ -24,18 +24,8 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-node_modules
+node_modules/
 
 # Remove some common IDE working directories
 .idea
 .vscode
-
-# build
-udp.js
-tcp.js
-index.js
-encode/
-decode/
-object/
-
-package-lock.json

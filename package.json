@@ -1,28 +1,17 @@
 {
   "name": "gd-com",
-  "version": "0.0.8",
-  "description": "Establish communication between godot and nodejs",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Serializer/deserializer helper for godot engine",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "gulp",
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "lint": "./node_modules/.bin/standard lib/**/*.js example/**/*.js test/**/*.js",
+    "test": "./node_modules/.bin/mocha --colors ./test/*.spec.js",
+    "test:watch": "./node_modules/.bin/mocha --colors -w ./test/*.spec.js"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-preset-env": "^1.6.1",
     "chai": "3.5.0",
-    "eslint": "3.19.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sourcemaps": "^2.6.1",
-    "lodash": "^4.17.4",
     "mocha": "3.3.0",
-    "yargs": "7.1.0"
+    "standard": "^10.0.3"
   },
   "repository": {
     "type": "git",
@@ -41,5 +30,20 @@
   "bugs": {
     "url": "https://github.com/Tilican/gd-com/issues"
   },
-  "homepage": "https://github.com/Tilican/gd-com"
+  "contributors": [
+    "Xavier Sellier <xsellier@gmail.com>"
+  ],
+  "homepage": "https://github.com/Tilican/gd-com",
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
 }
