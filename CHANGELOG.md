@@ -1,5 +1,20 @@
 ## CHANGELOG
 
+* v0.1.1
+  * README.md: Update the README.md file
+  * package.json: Bump the package version
+
+* v0.1.0
+  * example: Fix typo
+  * Lint: Lint the code, using standardJS instead of ESLint
+  * Misc: Remove dependency of Babel and Gulp
+  * Directory: Move src/ to lib/ and cancel the minify of the code
+  * gitignore: Add the LICENSE to the gitignore and also the packge-lock.json file
+  * TODO: Add the endianness to the TODO list
+  * Tests: Refactor the test to check that encoding/decoding does not loss data (except for float precision)
+  * Examples: Refactor the examples to use only the current valid example of what we can do without babel
+  * Decode/Encode: Refactor the code to be more functional
+
 * v0.0.8 bug export
 
 * v0.0.7

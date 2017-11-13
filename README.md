@@ -1,4 +1,4 @@
-# gd-com
+# ![GM-Com](./img/logo.png) gd-com
 
 Establish communication between godot and nodejs with TCP and UDP !
 
@@ -15,75 +15,65 @@ Partial compatibility with Godot v 3.X
 `npm install --save gd-com`
 
 ## Usage
-ES6
+
+### ES6
+
 ```javascript
-import { tcp, udp, object } from 'gd-com';
-import tcp from 'gd-com/tcp';
-import udp from 'gd-com/udp';
+import { TCP, UDP, objects } from 'gd-com'
 
-let wanted = "test";
-console.log(wanted);
-let encoded = tcp.encode(wanted);
-console.log(encoded);
-let decoded = tcp.decode(encoded);
-console.log(decoded);
+let wanted = 'test'
+let encoded = TCP.encode(wanted)
+let decoded = TCP.decode(encoded)
 
-
-let wanted = "test";
-console.log(wanted);
-let encoded = udp.encode(wanted);
-console.log(encoded);
-let decoded = udp.decode(encoded);
-console.log(decoded);
+let wanted = 'test'
+let encoded = UDP.encode(wanted)
+let decoded = UDP.decode(encoded)
 ```
 
-ES5
+### ES5
+
 ```javascript
-var gdCom = require('gd-com');
+var gdCom = require('gd-com')
 
-var wanted = "test";
-console.log(wanted);
-var encoded = gdCom.tcp.encode(wanted);
-console.log(encoded);
-var decoded = gdCom.tcp.decode(encoded);
-console.log(decoded);
+var wanted = 'test'
+var encoded = gdCom.TCP.encode(wanted)
+var decoded = gdCom.TCP.decode(encoded)
 
-var wanted = "test";
-console.log(wanted);
-var encoded = gdCom.udp.encode(wanted);
-console.log(encoded);
-var decoded = gdCom.udp.decode(encoded);
-console.log(decoded);
+var wanted = 'test'
+var encoded = gdCom.UDP.encode(wanted)
+var decoded = gdCom.UDP.decode(encoded)
 ```
 
 ## Object Godot in JS
 
-ES6
+### ES6
+
 ```javascript
-import { Vector2, Rect2 } from 'gd-com/object';
-import Vector2 from 'gd-com/object/Vector2';
-import Rect2 from 'gd-com/object/Rect2';
+import { Vector2, Rect2 } from 'gd-com/object'
+import Vector2 from 'gd-com/object/Vector2'
+import Rect2 from 'gd-com/object/Rect2'
 
-let v2 = new Vector2(3, 2);
-let v2Encoded = udp.encode(v2);
-let v2dencoded = udp.decode(v2Encoded);
+let v2 = new Vector2(3, 2)
+let v2Encoded = udp.encode(v2)
+let v2dencoded = udp.decode(v2Encoded)
 
-let r2 = new Rect2(1, 2, 3, 4);
-let r2Encoded = udp.encode(r2);
-let r2dencoded = udp.decode(r2Encoded);
+let r2 = new Rect2(1, 2, 3, 4)
+let r2Encoded = udp.encode(r2)
+let r2dencoded = udp.decode(r2Encoded)
 ```
 
-ES5
+### ES5
+
 ```javascript
-var gdCom = require('gd-com');
+var gdCom = require('gd-com')
 
-var v2 = new gdCom.object.Vector2(3, 2);
-var v2Encoded = gdCom.udp.encode(v2);
-var v2dencoded = gdCom.udp.decode(v2Encoded);
+var v2 = new gdCom.objects.Vector2(3, 2)
+var v2Encoded = gdCom.UDP.encode(v2)
+var v2dencoded = gdCom.UDP.decode(v2Encoded)
 
-var r2 = new gdCom.object.Rect2(1, 2, 3, 4);
-var r2Encoded = gdCom.udp.encode(r2);
-var r2dencoded = gdCom.udp.decode(r2Encoded);
+var r2 = new gdCom.objects.Rect2(1, 2, 3, 4)
+var r2Encoded = gdCom.UDP.encode(r2)
+var r2dencoded = gdCom.UDP.decode(r2Encoded)
 ```
 
 ## Contributing

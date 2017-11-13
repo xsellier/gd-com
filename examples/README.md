@@ -1,6 +1,6 @@
 # Examples
 
-## How it work's
+## How it works ?
 
 Godot 2 or 3 works with js es5 or es6 !
 
@@ -13,8 +13,6 @@ Godot 2 or 3 works with js es5 or es6 !
 ### ES5
 
 `node file.js`
-
-
 
 ### ES6
 
