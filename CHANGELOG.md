@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+* v0.2.0
+  * Promisify decode/encode functions to reduce the call stack size
+  * Added more complex data tests (deep json and mixed data types)
+
 * v0.1.1
   * README.md: Update the README.md file
   * package.json: Bump the package version
