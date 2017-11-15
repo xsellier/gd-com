@@ -65,12 +65,7 @@ import Vector2 from 'gd-com/object/Vector2'
 import Rect2 from 'gd-com/object/Rect2'
 
 let v2 = new Vector2(3, 2)
-let v2Encoded = udp.encode(v2)
-let v2dencoded = udp.decode(v2Encoded)
-
 let r2 = new Rect2(1, 2, 3, 4)
-let r2Encoded = udp.encode(r2)
-let r2dencoded = udp.decode(r2Encoded)
 ```
 
 ### ES5
@@ -79,12 +74,7 @@ let r2dencoded = udp.decode(r2Encoded)
 var gdCom = require('gd-com')
 
 var v2 = new gdCom.objects.Vector2(3, 2)
-var v2Encoded = gdCom.UDP.encode(v2)
-var v2dencoded = gdCom.UDP.decode(v2Encoded)
-
 var r2 = new gdCom.objects.Rect2(1, 2, 3, 4)
-var r2Encoded = gdCom.UDP.encode(r2)
-var r2dencoded = gdCom.UDP.decode(r2Encoded)
 ```
 
 ## Contributing
