@@ -3,12 +3,11 @@ const gdCom = require('../lib')
 
 let server = net.createServer(function (socket) {
   socket.on('data', function (data) {
-    console.log(JSON.stringify(gdCom.TCP.decode(data)))
-
     let vector = gdCom.objects.Vector2(2, 3)
-    let buf = Buffer.from(gdCom.TCP.encode(vector))
 
-    socket.write(buf)
+    return gdCom.TCP.encode(vector)
+      .then(Buffer.from)
+      .then(socket.write)
   })
 
   socket.on('error', () => console.log('Bye :('))

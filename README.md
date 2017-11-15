@@ -22,26 +22,37 @@ Partial compatibility with Godot v 3.X
 import { TCP, UDP, objects } from 'gd-com'
 
 let wanted = 'test'
-let encoded = TCP.encode(wanted)
-let decoded = TCP.decode(encoded)
 
-let wanted = 'test'
-let encoded = UDP.encode(wanted)
-let decoded = UDP.decode(encoded)
+TCP.encode(wanted).then((encoded) => {
+  return TCP.decode(encoded)
+}).then((decoded) => {
+  console.log(decoded)
+})
+
+UDP.encode(wanted).then((encoded) => {
+  return UDP.decode(encoded)
+}).then((decoded) => {
+  console.log(decoded)
+})
 ```
 
 ### ES5
 
 ```javascript
 var gdCom = require('gd-com')
-
 var wanted = 'test'
-var encoded = gdCom.TCP.encode(wanted)
-var decoded = gdCom.TCP.decode(encoded)
 
-var wanted = 'test'
-var encoded = gdCom.UDP.encode(wanted)
-var decoded = gdCom.UDP.decode(encoded)
+gdCom.TCP.encode(wanted).then((encoded) => {
+  return gdCom.TCP.decode(encoded)
+}).then((decoded) => {
+  console.log(decoded)
+})
+
+gdCom.UDP.encode(wanted).then((encoded) => {
+  return gdCom.UDP.decode(encoded)
+}).then((decoded) => {
+  console.log(decoded)
+})
 ```
 
 ## Object Godot in JS
