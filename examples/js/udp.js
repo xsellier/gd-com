@@ -1,5 +1,5 @@
 const dgram = require('dgram')
-const gdCom = require('../lib')
+const gdCom = require('../../lib')
 
 let server = dgram.createSocket('udp4')
 

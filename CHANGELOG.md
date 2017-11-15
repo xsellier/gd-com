@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+* v0.2.1
+  * Bugfix: Decode function used a wrong length to decode data. All the types use now max(offset) + length as default length value
+  * Update the examples
+
 * v0.2.0
   * Promisify decode/encode functions to reduce the call stack size
   * Added more complex data tests (deep json and mixed data types)

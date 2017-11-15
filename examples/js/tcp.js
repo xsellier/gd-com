@@ -1,13 +1,21 @@
 const net = require('net')
-const gdCom = require('../lib')
+const gdCom = require('../../lib')
 
 let server = net.createServer(function (socket) {
   socket.on('data', function (data) {
-    let vector = gdCom.objects.Vector2(2, 3)
+    let vector = new gdCom.objects.Vector2(2, 3)
 
-    return gdCom.TCP.encode(vector)
-      .then(Buffer.from)
-      .then(socket.write)
+    return gdCom.TCP.decode(data)
+      .then((value) => console.log(value))
+      .then(() => gdCom.TCP.encode(vector))
+      .then((data) => {
+        let buffer = Buffer.from(data)
+
+        return socket.write(buffer)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   })
 
   socket.on('error', () => console.log('Bye :('))

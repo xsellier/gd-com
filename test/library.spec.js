@@ -15,6 +15,12 @@ let data = {
     12: -12,
     test: 'test',
     dataDeepFile
+  }, {
+    test: 'test',
+    position: [ new gdCom.objects.Rect2(2, 3, 4, 5) ]
+  }, {
+    test: 'test',
+    position: [ new gdCom.objects.Vector2(2, 3) ]
   }],
   Array: [
     [ true, false, 12, -12, 'test', 'test2' ],
